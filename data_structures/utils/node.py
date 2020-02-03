@@ -3,11 +3,21 @@ class Node(object):
 
     def __init__(self, item):
         self.item = item
-        self.next = None
-        self.previous = None
+        self.__next = None
+        self.__previous = None
 
-    def set_next(self, item):
-        self.next = item
+    @property
+    def next(self):
+        return self.__next
 
-    def set_previous(self, item):
-        self.previous = item
+    @property
+    def previous(self):
+        return self.__previous
+
+    @next.setter
+    def next(self, item):
+        self.__next = item
+
+    @previous.setter
+    def previous(self, item):
+        self.__previous = item

@@ -10,22 +10,21 @@ class StackWithNodes(object):
 
     def push(self, item):
         new_node = Node(item)
-        if self.top:
-            new_node.set_next(self.top)
+        if self.top is not None:
+            new_node.next = self.top
         self.top = new_node
         self.length += 1
 
     def pop(self):
-        if self.top:
+        if self.top is not None:
             temp = self.top
-            if self.top.next:
-                self.top = self.top.next
+            self.top = self.top.next if self.top.next is not None else None
             self.length -= 1
             return temp.item
         return Exception("Stack is empty")
 
     def peek(self):
-        if self.top:
+        if self.top is not None:
             return self.top.item
         return Exception("Stack is empty")
 
