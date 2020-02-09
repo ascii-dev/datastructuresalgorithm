@@ -1,10 +1,10 @@
 class Node(object):
     """A single node element for use with containers"""
 
-    def __init__(self, item):
+    def __init__(self, item, next=None, previous=None):
         self.item = item
-        self.__next = None
-        self.__previous = None
+        self.__next = next
+        self.__previous = previous
 
     @property
     def next(self):
